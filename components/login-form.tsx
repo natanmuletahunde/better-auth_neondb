@@ -1,4 +1,6 @@
 'use client'
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -11,6 +13,12 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { signUp } from "@/server/users"
+import { z } from "zod"
+ 
+const formSchema = z.object({
+  email: z.string().email(),
+  password:z.string().min(8),
+})
 
 export function LoginForm({
   className,
