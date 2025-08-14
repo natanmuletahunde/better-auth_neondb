@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Better Auth Starter with Drizzle, Neon, and Shadcn
 
-## Getting Started
+An **authentication-ready** Next.js starter kit powered by:
 
-First, run the development server:
+- **[Better Auth](https://better-auth.com/)** for secure, modern authentication
+- **[Drizzle ORM](https://orm.drizzle.team/)** for type-safe database queries & migrations
+- **[Neon](https://neon.tech/)** for scalable serverless PostgreSQL
+- **[Shadcn/UI](https://ui.shadcn.com/)** for beautiful and customizable UI components
+- **Tailwind CSS** for styling
 
+## 🌐 Live Demo
+Check out the live version here:  
+👉 **[better-auth-neondb.vercel.app](https://better-auth-neondb-1ns4rmvjx-natan-muletas-projects.vercel.app)**
+
+---
+
+## 📸 Screenshots
+
+![Dashboard Screenshot](https://github.com/user-attachments/assets/503068fe-711b-4a3f-a7c8-c9b0dd9c9f4e)
+![Login Page](https://github.com/user-attachments/assets/756b0948-fa17-4a40-ab60-bd44eb1785d7)
+![Sign Up Page](https://github.com/user-attachments/assets/aebf0f9d-e613-4050-b96b-43dddb6f0db6)
+
+---
+
+## ⚡ Features
+- 🔑 **Authentication** (Sign up, Sign in, Sign out)  
+- 🛡 **Better Auth** integration for a secure auth flow  
+- 📦 **Drizzle ORM** for migrations & database queries  
+- 🗄 **Neon Postgres** (serverless DB hosting)  
+- 🎨 **Shadcn/UI** components + Tailwind CSS  
+- 📱 Fully responsive design  
+- 🌑 Dark mode ready
+
+---
+
+## 🛠 Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| **Next.js 14** | React framework with App Router |
+| **Better Auth** | Authentication library |
+| **Drizzle ORM** | Type-safe database migrations & queries |
+| **Neon** | Serverless PostgreSQL database |
+| **Shadcn/UI** | Styled, accessible UI components |
+| **Tailwind CSS** | Utility-first CSS framework |
+
+---
+
+## 🚀 Getting Started
+
+### 1️⃣ Clone the Repository
 ```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+
+2️⃣ Install Dependencies
+
+npm install
+# or
+yarn install
+# or
+pnpm install
+
+3️⃣ Set Up Environment Variables
+
+Create a .env file in the root and add:
+
+DATABASE_URL="your_neon_database_url"
+
+4️⃣ Push Database Schema
+
+npx drizzle-kit push
+
+5️⃣ Run the Development Server
+
 npm run dev
 # or
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open http://localhost:3000 in your browser.
+📂 Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+├── app/              # Next.js App Router pages
+├── components/       # Reusable UI components
+├── db/               # Drizzle ORM schema & migrations
+├── public/           # Static assets
+├── drizzle.config.ts # Drizzle ORM config
+└── .env              # Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+📦 Deployment
 
-## Learn More
+Deployed with Vercel — just push to your main branch and it will auto-deploy.
 
-To learn more about Next.js, take a look at the following resources:
+Deploy on Vercel →
+🤝 Contributing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Contributions are welcome!
+Fork the repo, make your changes, and submit a PR.
+📜 License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project is licensed under the MIT License.
+✨ Author
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Natan Muleta
+💼 Software Engineering Student | Full Stack Developer
