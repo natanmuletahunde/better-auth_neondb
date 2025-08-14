@@ -9,9 +9,17 @@ export const signIn = async (email:string,password:string) =>{
                 password
             } 
         }) 
+        return{
+            success: true,
+            message: "User signed in successfully"
+        }
     } catch (error) {
-         throw new Error('invalid email or password'); 
-    }
+        const e = error as Error;
+        return {
+            success: false,
+            message: e.message || "An error occurred during sign in"
+        }
+     }
     
 }
 export const signUp = async () =>{
