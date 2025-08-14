@@ -11,17 +11,15 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
-import { signUp } from "@/server/users"
+import { signIn, } from "@/server/users"
 import { z } from "zod"
 
 const formSchema = z.object({
@@ -42,9 +40,8 @@ export function LoginForm({
   })
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
+    signIn(values.email, values.password)
   }
-
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
@@ -100,27 +97,33 @@ export function LoginForm({
                     />
                   </div>
                   <div className="grid gap-3">
-                    <div className="flex items-center">
-                      <Label htmlFor="password">Password</Label>
-                      <a
-                        href="#"
-                        className="ml-auto text-sm underline-offset-4 hover:underline"
-                      >
-                        Forgot your password?
+                    <div className="flex items-center justify-between">
+                      <FormField
+                        control={form.control}
+                        name="password"
+                        render={({ field }) => (
+                          <FormItem className="flex-1">
+                            <FormLabel>Password</FormLabel>
+                            <FormControl>
+                              <Input
+                                type="password"
+                                placeholder="••••••••"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <a href="#" className="underline underline-offset-4">
+                        Sign up
                       </a>
                     </div>
-                    <Input id="password" type="password" required />
                   </div>
-                  <Button type="button" className="w-full" onClick={signUp}>
-                    Login
-                  </Button>
                 </div>
-                <div className="text-center text-sm">
-                  Don&apos;t have an account?{" "}
-                  <a href="#" className="underline underline-offset-4">
-                    Sign up
-                  </a>
-                </div>
+                <Button type="submit" className="w-full">
+                  Continue
+                </Button>
               </div>
             </form>
           </Form>
