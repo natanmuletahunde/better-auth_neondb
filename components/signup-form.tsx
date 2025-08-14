@@ -19,12 +19,12 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
-import { signIn } from "@/server/users"
+import {  signUp } from "@/server/users"
 import { z } from "zod"
 import { toast } from "sonner"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
-import { Loader2 } from "lucide-react"
+import { Link, Loader2 } from "lucide-react"
 import { authClient } from "@/lib/auth-client"
 
 const formSchema = z.object({
@@ -57,7 +57,9 @@ export function SignupForm({
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true)
-    const { success, message } = await signIn(values.email, values.password)
+    const { success, message } = await signUp(values.email,
+        values.password,
+        values.username)
     if (success) {
       toast.success(message as string)
       route.push("/dashboard")
@@ -73,7 +75,7 @@ export function SignupForm({
         <CardHeader className="text-center">
           <CardTitle className="text-xl">Welcome back</CardTitle>
           <CardDescription>
-            Login with your Google account
+            SignUp  with your Google account
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -91,7 +93,7 @@ export function SignupForm({
                         fill="currentColor"
                       />
                     </svg>
-                    Login with Google
+                    Signup with Google
                   </Button>
                 </div>
                 <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
@@ -160,14 +162,14 @@ export function SignupForm({
                 </div>
 
                 <div className="text-center text-sm">
-                  Don&apos;t have an account?{" "}
-                  <a href="#" className="underline underline-offset-4">
-                    Sign up
-                  </a>
+                  Already have an account?{" "}
+                  <Link href="/login" className="underline underline-offset-4">
+                    Login
+                  </Link>
                 </div>
 
                 <Button type="submit" className="w-full" disabled={isLoading}>
-                  {isLoading ? (<Loader2 className="size-4 animate-spin" />) : 'Login'}
+                  {isLoading ? (<Loader2 className="size-4 animate-spin" />) : 'Sign Up'}
                 </Button>
               </div>
             </form>
