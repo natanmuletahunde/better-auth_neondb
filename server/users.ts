@@ -33,7 +33,7 @@ export const signUp = async (email:string,password:string,username:string) =>{
         })
         return{
             success: true,
-            message: "User signUp  successfully"
+            message: "Users signUp  successfully"
         }  
     } catch (error) {
         const e = error as Error;
