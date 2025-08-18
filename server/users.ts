@@ -42,5 +42,4 @@ export const signUp = async (email:string,password:string,username:string) =>{
             message: e.message || "An error occurred during sign up"
         }
     }
-   
 }
